@@ -1,21 +1,40 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, Text, Dimensions } from 'react-native';
+import MapView, { Marker } from 'react-native-maps';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View>
+
+
+      <MapView
+        style={styles.mapa}
+        initialRegion={{
+          latitude: -23.552950,
+          longitude: -46.399712,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421, 
+        }}
+      >
+
+    <Marker
+    coordinate={{
+      latitude: -23.552950,
+      longitude: -46.399712,
+    }}
+    title="Etec de Guaianazes"
+    description="Rua Feliciano de Mendonça, 290 - Jardim Soares"
+    />
+
+      </MapView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  
+  mapa: {
+    width: '100%',
+    height: '100%'
+  }
 });
